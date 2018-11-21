@@ -8,11 +8,15 @@ import { WeightEntriesService } from './shared/weight-entries.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  showBodyFat = true;
   
   constructor(private entriesSvc: WeightEntriesService) {}
 
   ngOnInit() {
+  }
+
+  toggleBodyFat(){
+    this.showBodyFat = !this.showBodyFat;
   }
   
 }
