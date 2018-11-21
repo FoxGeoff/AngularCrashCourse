@@ -21,3 +21,9 @@ Finish demo
 Break down demo into outline
 ***
 # Working Project: Angular Crash Couse
+
+## Basic Templates
+* data interpolation: {{data}}
+* DOM element property binding: <td [hidden]= show> <!-- show:boolean = true -->
+* built in directives *ngIf ="show", * ngFor="let item of items"
+* <button> {{showBodyFat? "Hide" : "Show"}}  Body Fat </button>
