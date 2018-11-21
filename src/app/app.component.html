@@ -22,9 +22,9 @@
     </thead>
     <tbody>
       <tr>
-        <td>Date</td>
-        <td>Weight</td>
-        <td >Body Fat %</td>
+        <td>{{entriesSvc.sortedEntries[0].date|date}}</td>
+        <td>{{entriesSvc.sortedEntries[0].weight}} lbs</td>
+        <td>{{entriesSvc.sortedEntries[0].bodyFat|percent}}</td>
       </tr>
     </tbody>
   </table>

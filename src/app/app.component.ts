@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WeightEntriesService } from './shared/weight-entries.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   
   
-  constructor() {}
+  constructor(private entriesSvc: WeightEntriesService) {}
 
   ngOnInit() {
   }
