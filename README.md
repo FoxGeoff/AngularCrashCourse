@@ -30,3 +30,5 @@ Break down demo into outline
 
 ## Child Components
 * Add home.component
+* Move html, code and service from app.component to home.component
+* Add new-weight-entry component
