@@ -35,3 +35,6 @@ Break down demo into outline
 * Insert html for this component to display into home.component.html
 * Code: html for NewWeightEntry Component
 * Add to button (click)="CreateEntry()"
+
+## @Input() data binding 
+* Add: On button toggle (home component) hide/show input box (new weight entry component)
