@@ -27,3 +27,6 @@ Break down demo into outline
 * DOM element property binding: <td [hidden]= show> <!-- show:boolean = true -->
 * built in directives *ngIf ="show", * ngFor="let item of items"
 * <button> {{showBodyFat? "Hide" : "Show"}}  Body Fat </button>
+
+## Child Components
+* Add home.component
