@@ -32,3 +32,6 @@ Break down demo into outline
 * Add home.component
 * Move html, code and service from app.component to home.component
 * Add new-weight-entry component
+* Insert html for this component to display into home.component.html
+* Code: html for NewWeightEntry Component
+* Add to button (click)="CreateEntry()"

@@ -12,4 +12,7 @@ export class NewWeightEntryComponent implements OnInit {
   ngOnInit() {
   }
 
+  CreateEntry(){
+
+  }
 }
