@@ -38,3 +38,13 @@ Break down demo into outline
 
 ## @Input() data binding 
 * Add: On button toggle (home component) hide/show input box (new weight entry component)
+
+## @Ouput() data binding (raising an event)
+* @Output() create = new EventEmitter(); (new-weght-entry component)
+* Add method :
+```
+createEntry(){ 
+   this.create.emit({id:-1, data: new Date ('11/21/2018'), weight:110, bodyFat:0.35});
+}
+```
+* in home component we listen: <hm-new-weight-entry [showBodyFat]="showBodyFat">
