@@ -38,13 +38,28 @@ Break down demo into outline
 
 ## @Input() data binding 
 * Add: On button toggle (home component) hide/show input box (new weight entry component)
+* In home component we share the value with the child component: <hm-new-weight-entry [showBodyFat]="showBodyFat "> to @Input()showBodyFat
+* In the child component the value is use:
+```
+<label *ngIf="showBodyFat" for="bodyfat" class="sr-only">Body Fat %</label>
+<input *ngIf="showBodyFat" type="text" name="bodyfat" id="bodyfat" autocomplete="off" class="form-control my-1 mr-sm-2" placeholder="Body Fat %">
+```
 
-## @Ouput() data binding (raising an event)
+## @Ouput() data binding (raising an event from child "new weight entry component")
 * @Output() create = new EventEmitter(); (new-weght-entry component)
 * Add method :
 ```
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+...
 createEntry(){ 
-   this.create.emit({id:-1, data: new Date ('11/21/2018'), weight:110, bodyFat:0.35});
+   this.create.emit({id:-1, date: new Date ('11/21/2018'), weight:110, bodyFat:0.35});
 }
 ```
-* in home component we listen: <hm-new-weight-entry [showBodyFat]="showBodyFat">
+* Now Bind to the Event: <hm-new-weight-entry [showBodyFat] = "showBodyFat" (create)="createNewEntry($event)">
+* Create Method:
+```
+creatNewEvent(entry: Entry){
+   this.entriesSvc.AddEntry(entry);
+}
+
+```

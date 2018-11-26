@@ -23,6 +23,6 @@
 </table>
 
 <div class="col-sm">
-  <hm-new-weight-entry [showBodyFat]="showBodyFat"></hm-new-weight-entry>
+  <hm-new-weight-entry [showBodyFat]="showBodyFat" (create)="createNewEntry($event)"></hm-new-weight-entry>
 </div>
 <div class="col-sm">&nbsp;</div>
