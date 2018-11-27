@@ -97,5 +97,49 @@ resetForm(){
 * Clear out form after sending the data(click has two actions):
 ```<button (click)="createEntry(); resetForm();"> Save </button>```
 * Button can't save until all checks are valid:
-```<button [disabled]="entryForm.form.invalid">
+```<button [disabled]="entryForm.form.invalid"> ```
 * Add checks to each control required,  type="email" etc.
+
+## HTTP
+
+# Observables - Reactive Extensions for JavaScript - RXJS
+
+* ```get``` is used to manipulate the values passing through the stream:
+```
+http.get(url).pipe(
+       map(entries => { 
+          return entries.sort((a,b) => {
+               // sort alogrithm
+      })
+})
+```
+* ```tap``` is used to do something as a value comes through the stream:
+```
+tap (entries => {
+   console.log (entitries.length);
+})
+```
+* ```subscribe``` to use an observable [0 = no calls made, n = n calls made]:
+* for each http, each subscribe() will re-issue the http call:
+```
+obs.subscrib(val => {
+   //do something with val
+})
+```
+* map() to format the data
+* tap() to just look at values
+* subscribe() to be the end client
+
+# Using the http node server (new terminal server)
+
+*Run: ``` npm run server ``` json sever on port 3000
+
+# Send requests to that port using proxy.conf.json
+```
+{
+   "api": {
+      "target": "http://localhost:3000",
+      "secure": false
+   }
+}
+```
