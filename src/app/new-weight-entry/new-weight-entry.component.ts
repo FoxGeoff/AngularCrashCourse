@@ -7,14 +7,25 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class NewWeightEntryComponent implements OnInit {
   @Input() showBodyFat: boolean;
-  @Output() create =  new EventEmitter();
+  @Output() create = new EventEmitter();
+  model;
 
   constructor() { }
 
   ngOnInit() {
+    this.resetForm();
   }
 
-  CreateEntry() {
-    this.create.emit({id:-1, date: new Date ('11/21/2018'), weight:110, bodyFat:0.35});
+  resetForm() {
+    this.model = {};
+  }
+
+  createEntry() {
+    let newEntry = Object.assign({}, this.model, {
+      bodyFat: this.model.bodyFat / 100,
+      date: new Date(this.model.date)
+    });
+
+    this.create.emit(newEntry);
   }
 }

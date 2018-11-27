@@ -63,3 +63,39 @@ creatNewEvent(entry: Entry){
 }
 
 ```
+# Module: Forms
+## Add a form
+* Import into app.module "formsModule" from "@angular/forms";
+* Initialise the form:
+```
+model;
+
+resetForm(){
+   this.model = {};
+}
+```
+* Update the form:
+```
+<form #entryForm ="ngForm" class="form-inline">
+...
+   <input type="text" name="weight" id="weight" class="form-control my-1 mr-sm-2" autocomplete="off" placeholder="Weight" [(ngModel)]="model.weight">
+...
+   <button (click)="CreateEntry()" class="btn btn-primary my-1">Save</button>
+</form>
+```
+* Update funtion to pass real data:
+```
+ createEntry() {
+    let newEntry = Object.assign({}, this.model, {
+      bodyFat: this.model.bodyFat / 100,
+      date: new Date(this.model.date)
+    });
+
+    this.create.emit(newEntry);
+  }
+  ```
+* Clear out form after sending the data(click has two actions):
+```<button (click)="createEntry(); resetForm();"> Save </button>```
+* Button can't save until all checks are valid:
+```<button [disabled]="entryForm.form.invalid">
+* Add checks to each control required,  type="email" etc.
