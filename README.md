@@ -134,7 +134,7 @@ obs.subscrib(val => {
 
 *Run: ``` npm run server ``` json sever on port 3000
 
-# Send requests to that port using proxy.conf.json
+## Send requests to that port using proxy.conf.json
 ```
 {
    "api": {
@@ -144,10 +144,10 @@ obs.subscrib(val => {
 }
 ```
 
-# Update: app.module.ts
+## Update: app.module.ts
 * Add: import {HttpClientModule} from '@angular/common/http' ;
 
-# Update: service calls
+## Update: service calls
 * remove the data object and reference methods and variable
 * inject the HttpClient (common/http)
 * Add: method getEntries(){}
@@ -174,7 +174,7 @@ public getEntries() {
     )
   }
 ```
-# Update: home.component calls
+## Update: home.component calls
 *  Add variable and method
 ```
 export class HomeComponent implements OnInit {
@@ -184,6 +184,25 @@ export class HomeComponent implements OnInit {
  ngOnInit() {
     this.entriesSvc.getEntries().subscribe( entries => {
       this.entries = entries;
+    })
+  }
+```
+# Modify POST request to HTTP server
+
+# Code: addEntry(entry: Entry) {}
+* in service code:
+```
+addEntry(entry: Entry) {
+    return this.http.post('http://localhost:3000/api/entries', entry);
+  }
+```
+* in the home.component:
+```
+createNewEntry(entry: Entry){
+    this.entriesSvc.addEntry(entry).subscribe(() =>{
+      this.entriesSvc.getEntries().subscribe(entries => {
+        this.entries = entries;
+      });
     })
   }
 ```

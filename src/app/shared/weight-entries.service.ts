@@ -44,7 +44,7 @@ export class WeightEntriesService {
   }
 
   addEntry(entry: Entry) {
-
+    return this.http.post('http://localhost:3000/api/entries', entry);
   }
 
 }

@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
   }
 
   createNewEntry(entry: Entry){
-    this.entriesSvc.addEntry(entry);
+    this.entriesSvc.addEntry(entry).subscribe(() =>{
+      this.entriesSvc.getEntries().subscribe(entries => {
+        this.entries = entries;
+      })
+    })
   }
 }
