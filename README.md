@@ -153,7 +153,7 @@ obs.subscrib(val => {
 * Add: method getEntries(){}
 ```
 public getEntries() {
-    return this.http.get<Entry[]>('/api/entries').pipe(
+    return this.http.get<Entry[]>('http://localhost:3000/api/entries').pipe(
       map(entries => {
         return entries.map(e => {
           e.date = new Date(e.date);
@@ -172,5 +172,18 @@ public getEntries() {
         });
       })
     )
+  }
+```
+# Update: home.component calls
+*  Add variable and method
+```
+export class HomeComponent implements OnInit {
+  showBodyFat = true;
+  entries: Entry[];
+  ...
+ ngOnInit() {
+    this.entriesSvc.getEntries().subscribe( entries => {
+      this.entries = entries;
+    })
   }
 ```
