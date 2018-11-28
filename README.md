@@ -143,3 +143,34 @@ obs.subscrib(val => {
    }
 }
 ```
+
+# Update: app.module.ts
+* Add: import {HttpClientModule} from '@angular/common/http' ;
+
+# Update: service calls
+* remove the data object and reference methods and variable
+* inject the HttpClient (common/http)
+* Add: method getEntries(){}
+```
+public getEntries() {
+    return this.http.get<Entry[]>('/api/entries').pipe(
+      map(entries => {
+        return entries.map(e => {
+          e.date = new Date(e.date);
+          return e;
+        })
+      }),
+      map(entries => {
+        return entries.sort((a: Entry, b: Entry) => {
+          if (a.date > b.date) {
+            return 1;
+          } else if (a.date.getTime() == b.date.getTime()) {
+            return 0;
+          } else {
+            return -1
+          }
+        });
+      })
+    )
+  }
+```
