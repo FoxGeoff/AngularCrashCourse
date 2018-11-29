@@ -215,3 +215,6 @@ RouterModule.forRoot([
    { path: 'home', component: HomeComponent }
 ])
 ```
+## Add login component:
+* Run: ``` ng  g c login --spec false ```
+* Run: ``` ng g s identity -- spec false ```
