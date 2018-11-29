@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
 import { from } from 'rxjs';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         NewWeightEntryComponent,
+        LoginComponent,
     ],
     imports: [
         CommonModule,
@@ -22,8 +24,9 @@ import { from } from 'rxjs';
         FormsModule,
         HttpClientModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent }
+            { path: '', redirectTo: '/home', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: 'login', component: LoginComponent },
         ]),
     ],
     providers: [],

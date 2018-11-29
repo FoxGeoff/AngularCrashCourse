@@ -218,3 +218,36 @@ RouterModule.forRoot([
 ## Add login component:
 * Run: ``` ng  g c login --spec false ```
 * Run: ``` ng g s identity -- spec false ```
+* Code HTML Template 
+* Code component
+``` constructor(private indentityScv: IdentityService) { } ```
+* Add login method
+```
+login(){
+   this.identitySvc.loggedIn = true;
+}
+
+```
+* Add logout method
+```
+logout(){
+    this.indentityScv.loggedIn = false;
+}
+```
+* Update routes:
+```
+imports: [
+        CommonModule,
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        RouterModule.forRoot([
+            { path: '', redirectTo: '/home', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: 'login', component: LoginComponent },
+        ]),
+```
+* Add to menu the links:
+```
+
+```
