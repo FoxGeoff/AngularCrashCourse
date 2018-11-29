@@ -206,3 +206,12 @@ createNewEntry(entry: Entry){
     })
   }
 ```
+# Routing
+
+## Import int app module 'RouterModule':
+```
+RouterModule.forRoot([
+   {path: '', redirectTo: 'home', pathMatch: 'full' },
+   { path: 'home', component: HomeComponent }
+])
+```
