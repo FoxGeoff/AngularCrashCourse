@@ -285,3 +285,32 @@ export class EntryDetailsComponent implements OnInit {
     });
   }
 ```
+* test run
+* add the html template
+* detail icon for display of details. Add new column to home table.
+```
+<tbody>
+    <tr *ngFor="let entry of entries">
+      <td style="width:20px;">
+        <a [routerLink]="['/entries/' + entry.id]">
+          <span class="detailIcon"><i class="fas fa-info-circle"></i></span>
+        </a>
+      </td>
+```
+* test run
+* update code to give real id details
+```
+export class EntryDetailsComponent implements OnInit {
+  entry: Entry;
+  constructor(private entriesSvc: WeightEntriesService, private currentRoute: ActivatedRoute) { }
+
+  ngOnInit() {
+    let id = +this.currentRoute.snapshot.params.id;
+    this.entriesSvc.getEntries().subscribe(entries => {
+      this.entry = entries.find(e => {
+        return e.id === id;
+      });
+    });
+  }
+
+```
