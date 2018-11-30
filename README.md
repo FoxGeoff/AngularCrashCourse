@@ -249,5 +249,39 @@ imports: [
 ```
 * Add to menu the links:
 ```
+<ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">
+        <i class="fas fa-weight"></i>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/home']" class="nav-link">Home</a>
+      </li>
+      <li *ngIf="!identitySvc.loggedIn" class="nav-item">
+        <a [routerLink]="['/login']" class="nav-link">Login</a>
+      </li>
+      <li *ngIf="identitySvc.loggedIn" class="nav-item">
+        <a [routerLink]="['/login']" class="nav-link">Logout</a>
+      </li>
+    </ul>
+```
+* Remember to now use ```<router-outlet></router-outlet>```
 
+## Add: entry-details.component
+
+* Run:``` ng g c entry-details --spec false ```
+* Add route ``` { path: 'entries/:id', component: EntryDetailsComponent } ```
+* Code entry-details for id = 1 and check:
+```
+export class EntryDetailsComponent implements OnInit {
+  entry: Entry;
+  constructor(private entriesSvc: WeightEntriesService) { }
+
+  ngOnInit() {
+    let id = 1;
+    this.entriesSvc.getEntries().subscribe(entries => {
+      this.entry = entries.find(e => {
+        return e.id === id;
+      });
+    });
+  }
 ```
