@@ -314,3 +314,8 @@ export class EntryDetailsComponent implements OnInit {
   }
 
 ```
+# Add delete item
+
+# Add edit item
+
+## Going to production
