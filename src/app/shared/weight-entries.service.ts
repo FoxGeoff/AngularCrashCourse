@@ -22,7 +22,7 @@ export class WeightEntriesService {
   constructor(private http: HttpClient) { }
 
   public getEntries() {
-    return this.http.get<Entry[]>('http://localhost:3000/api/entries').pipe(
+    return this.http.get<Entry[]>('http://localhost:50664/api/entries').pipe(
       map(entries => {
         return entries.map(e => {
           e.date = new Date(e.date);

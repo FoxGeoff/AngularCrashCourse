@@ -319,3 +319,18 @@ export class EntryDetailsComponent implements OnInit {
 # Add edit item
 
 ## Going to production
+
+## Connect to API from ASP.NET Core 2.1 Web API
+* https://localhost:44340/api/entries proxy.config.json:
+```
+{
+  "/api": {
+    "target": "https://localhost:44340/api/entries",
+    "secure": false
+  }
+}
+```
+
+```
+
+```
